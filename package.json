@@ -1,0 +1,98 @@
+{
+	"name": "react-native-web-video",
+	"version": "1.0.0-g",
+	"description": "A <Video /> element for react-native-web inspired in react-native-video",
+	"main": "build/index.js",
+	"types": "build/index.d.ts",
+	"scripts": {
+		"type-check": "tsc --noEmit",
+		"type-check:watch": "npm run type-check -- --watch",
+		"build": "npm run build:clear && npm run build:types && npm run build:js",
+		"build:types": "tsc --emitDeclarationOnly",
+		"build:js": "babel src --out-dir build --extensions \".ts,.tsx\" --source-maps inline",
+		"build:clear": "rimraf ./build",
+		"storybook": "NODE_PATH=src node -r esm ./node_modules/.bin/start-storybook -p 6006",
+		"build-storybook": "build-storybook"
+	},
+	"license": "MIT",
+	"keywords": [
+		"react-native",
+		"video",
+		"react"
+	],
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"files": [
+		"build",
+		"src"
+	],
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"author": "Adrián Insausti <ainsausti@quantum-ba.com> (https://github.com/adrianicv)",
+	"contributors": [
+		{
+			"name": "Ivan Koryakovtsev",
+			"email": "beatzhitta@gmail.com",
+			"url": "https://github.com/kv9991"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kv9991/react-native-web-video"
+	},
+	"peerDependencies": {
+		"react": "^16.8.0",
+		"react-dom": "^16.8.0"
+	},
+	"dependencies": {
+		"react": "16.12.0",
+		"react-dom": "16.12.0",
+		"react-native-web": "0.12.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "7.8.7",
+		"@babel/core": "7.8.7",
+		"@babel/plugin-proposal-class-properties": "7.8.7",
+		"@babel/preset-env": "7.8.7",
+		"@babel/preset-typescript": "7.8.7",
+		"@storybook/addon-knobs": "5.3.9",
+		"@storybook/addons": "5.3.9",
+		"@storybook/react": "5.3.9",
+		"@types/react": "16.9.19",
+		"@types/react-native": "0.61.12",
+		"@types/react-native-video": "5.0.0",
+		"@types/storybook__react": "5.2.1",
+		"@typescript-eslint/eslint-plugin": "2.19.0",
+		"@typescript-eslint/parser": "2.19.0",
+		"babel-eslint": "10.0.3",
+		"babel-loader": "^8.2.2",
+		"babel-plugin-typescript-to-proptypes": "1.2.1",
+		"eslint": "6.8.0",
+		"eslint-config-react-app": "5.2.0",
+		"eslint-plugin-flowtype": "3.13.0",
+		"eslint-plugin-import": "2.20.1",
+		"eslint-plugin-jsx-a11y": "6.2.3",
+		"eslint-plugin-react": "7.18.3",
+		"eslint-plugin-react-hooks": "1.7.0",
+		"esm": "3.2.25",
+		"husky": "4.2.1",
+		"lint-staged": "10.0.7",
+		"prettier": "1.19.1",
+		"prop-types": "15.7.2",
+		"react-native": "0.61.5",
+		"react-native-video": "5.0.2",
+		"rimraf": "3.0.2",
+		"ts-loader": "6.2.1",
+		"typescript": "3.7.5"
+	},
+	"resolutions": {
+		"@babel/preset-env": "^7.8.7"
+	}
+}
