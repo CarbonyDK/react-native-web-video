@@ -214,7 +214,7 @@ export class Video extends Component<Props> {
 				onStalled: this.props.onPlaybackStalled,
 				volume,
 				controls,
-				paused,
+				...(paused ? { paused: "true" } : {}),
 				muted,
 				loop: repeat,
 				autoPlay: !paused,
